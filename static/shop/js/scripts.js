@@ -1,11 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     fetchCategories();
     fetchRegions();
     fetchProducts();
     fetchCart();
 });
-
 
 function fetchCategories() {
     fetch('/api/categories/')
@@ -55,23 +53,24 @@ function fetchProducts(filters = {}) {
             productList.innerHTML = '';
             data.forEach(product => {
                 const col = document.createElement('div');
-                col.className = 'col-md-4';
+                col.className = 'box'; // Use the box class for styling
                 col.innerHTML = `
-                    <div class="card mb-4">
-                        <img src="${product.image_url}" class="card-img-top" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.name}</h5>
-                            <p class="card-text">${product.description}</p>
-                            <p class="card-text">$${product.price}</p>
-                            <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
-                        </div>
+                    <div class="box-img">
+                        <img src="${product.image_url}" alt="${product.name}">
                     </div>
+                    <div class="title-price">
+                        <h3>${product.name}</h3>
+                        <span>$${product.price}</span>
+                    </div>
+                    <p>${product.description}</p>
+                    <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
                 `;
                 productList.appendChild(col);
             });
         })
         .catch(error => console.error('Error fetching products:', error));
 }
+
 
 function applyFilters() {
     const category = document.getElementById('filter-category').value;
@@ -113,7 +112,6 @@ function addToCart(productId) {
     .catch(error => console.error('Error:', error));
 }
 
-
 function fetchCart() {
     fetch('/api/cart/')
         .then(response => response.json())
@@ -137,14 +135,12 @@ function fetchCart() {
         .catch(error => console.error('Error fetching cart:', error));
 }
 
-
 function updateCartItemQuantity(cartItemId, newQuantity) {
     fetch(`/api/cart/${cartItemId}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken
-
         },
         body: JSON.stringify({ quantity: newQuantity }),
     })
@@ -155,7 +151,6 @@ function updateCartItemQuantity(cartItemId, newQuantity) {
     })
     .catch(error => console.error('Error updating cart item:', error));
 }
-
 
 function removeFromCart(itemId) {
     fetch(`/api/cart/${itemId}/`, {
@@ -176,11 +171,9 @@ function removeFromCart(itemId) {
     .catch(error => console.error('Error:', error));
 }
 
-
-
 function toggleCart() {
     const cartList = document.getElementById('cart-list');
-    if (cartList.style.display === 'none') {
+    if (cartList.style.display === 'none' || cartList.style.display === '') {
         cartList.style.display = 'block';
     } else {
         cartList.style.display = 'none';

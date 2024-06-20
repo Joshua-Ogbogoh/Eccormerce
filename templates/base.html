@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -13,7 +12,22 @@
     <link rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
 </head>
 <body>
+
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">Josh <span>X.</span></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#new" onclick="toggleCart()">Cart</a></li>
+        </ul>
+    </header>
     <div class="container">
+        <div id="cart-list" style="display: none;">
+            <h2>Cart</h2>
+            <ul class="list-group"></ul>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
