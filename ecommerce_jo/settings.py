@@ -70,7 +70,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-ROOT_URLCONF = 'ecommerce_jo.urls'
+ROOT_URLCONF = 'ecommerce_jogit add ..urls'
 
 TEMPLATES = [
     {
