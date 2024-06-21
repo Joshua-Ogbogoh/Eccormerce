@@ -11,25 +11,12 @@ This is a full-stack e-commerce application built with Django for the backend an
 - Show stock availability when a product is added to the cart.
 - Secure API endpoints with JWT authentication.
 
-## Live Demo
-
-You can access the live demo of this application at the following URL:
-
-[Live Demo](https://jiji-ecomerce.onrender.com)
 
 ## API Documentation
 
 The API documentation is available via Swagger UI at the following URLs:
 
-- [Swagger UI](https://jiji-ecomerce.onrender.com/swagger)
-- [Redoc](https://jiji-ecomerce.onrender.com/redocs)
-
 ## Installation
-
-### Clone the repository:
-
-git clone (https://github.com/luornor/ecomerce.git)
-cd your-repo-name
 
 ### Create and activate a virtual environment:
 python -m venv venv

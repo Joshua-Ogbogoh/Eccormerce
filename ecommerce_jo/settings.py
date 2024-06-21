@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-19+&gfg&42utqlrb&-mb6)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "jiji-ecomerce.onrender.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ""]
 
 
 
@@ -70,7 +70,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-ROOT_URLCONF = 'ecommerce.urls'
+ROOT_URLCONF = 'ecommerce_jo.urls'
 
 TEMPLATES = [
     {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ecommerce.wsgi.application'
+WSGI_APPLICATION = 'ecommerce_jo.wsgi.application'
 
 
 # Database
