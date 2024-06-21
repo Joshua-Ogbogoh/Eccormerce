@@ -15,23 +15,19 @@ from pathlib import Path
 import dj_database_url
 from decouple import config
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-19+&gfg&42utqlrb&-mb6)p-4!0dyrs^8&^7&y8c%#-=go*)a9')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-19+&gfg&42utqlrb&-mb6)p-4!0dyrs^8&^7&y8c%#-=go*)a9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True')=="True"
+DEBUG = os.environ.get('DEBUG', 'True') == "True"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ""]
-
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://eccormerce-2.onrender.com']
 
 # Application definition
 
@@ -58,8 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-
 ]
+
 CSRF_COOKIE_HTTPONLY = False
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -70,7 +66,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-ROOT_URLCONF = 'ecommerce_jogit add ..urls'
+ROOT_URLCONF = 'ecommerce_jo.urls'  # Corrected this line
 
 TEMPLATES = [
     {
@@ -90,13 +86,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerce_jo.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 if not DEBUG:
     DATABASES = {
-	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 else:
     DATABASES = {
@@ -105,10 +100,6 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
-# To use the DATABASE_URL
-# DATABASES['default'] = dj_database_url.parse('postgres://jiji_db_y1fa_user:vzmmNUVsHcZdiHimhtfQKQHn2FqiibFH@dpg-cpop8qqju9rs738tedf0-a.oregon-postgres.render.com/jiji_db_y1fa')
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -128,7 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -139,7 +129,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
